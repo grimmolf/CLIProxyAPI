@@ -1,3 +1,28 @@
+# CLIProxy Rust (experimental)
+
+This public fork adds an independent Rust proxy with an embedded dashboard for
+multiple accounts per provider and detailed usage. The Go server below remains
+the reference implementation; this experiment does not yet provide full parity.
+
+```sh
+cargo run --locked -p cliproxy-rs -- --demo
+```
+
+Open **http://127.0.0.1:8318** and connect with token **demo**. Example data is
+isolated and labeled; demo mode sends no inference requests.
+
+For real accounts, release builds, API examples, and container instructions,
+see [the Rust guide](rust/README.md). The dashboard supports separate same-provider
+accounts, API keys, credential imports, experimental Codex/Claude OAuth, account
+controls, provider/account/model/status filters, and reported token and latency
+details. Native provider streaming is supported. Cross-format streaming,
+Responses WebSockets, and advanced Go integrations remain outside this experiment.
+See [the complete parity and limits](docs/rust-rewrite-parity.md).
+
+![Rust dashboard with observed usage and provider activity](docs/rust-dashboard.png)
+
+## Go reference
+
 # CLI Proxy API
 
 English | [中文](README_CN.md) | [日本語](README_JA.md)

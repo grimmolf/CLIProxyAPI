@@ -67,3 +67,9 @@ docker-compose.override.yml
 
 # Local LLM Wiki vault
 .llm-wiki
+
+# Rust build and local credentials
+/target/
+/rust/target/
+.cliproxy-rs/
+.cliproxy-demo/

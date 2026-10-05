@@ -1,0 +1,5 @@
+ts	phase	decision	why	evidence	result
+2026-10-04T23:43:14Z	architecture	Single Rust crate with embedded dashboard and stable account IDs	Astra review favors minimal independent implementation with honest parity boundaries	docs/rust-rewrite-contract.md	open
+2026-10-05T00:03:35Z	review	Correct conversion and stream accounting at shared boundaries	Astra found supported-path data loss and false completion; proxy worker adds regression checks	rust/src/protocol.rs	open
+2026-10-05T00:10:36Z	validation	Rust formatting strict clippy 21 checks and release build pass	Mock upstreams prove routing failover cancellation partial responses and redaction; final browser checks pending	rust/tests/proxy_flow.rs	backend checks green
+2026-10-05T00:16:53Z	validation	Dashboard desktop and mobile flow passes final built artifact	Real browser exercises auth multiple same-provider accounts edit disable delete filters details and focus boundary with no JS or CSP errors	/tmp/cliproxy-rust-browser-qa/check.cjs	21 Rust tests plus browser green
