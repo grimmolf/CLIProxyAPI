@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111714">
+  <title>CLIProxy · Control room</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#/overview" aria-label="CLIProxy home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span class="brand-text">CLI<span>PROXY</span><small>CONTROL ROOM</small></span></a>
+      <div class="side-caption">WORKSPACE <span>01 / LOCAL</span></div>
+      <nav class="nav" aria-label="Sections">
+        <a href="#/overview" data-route="overview"><span class="nav-icon" aria-hidden="true">◫</span> Overview <span class="nav-index">01</span></a>
+        <a href="#/accounts" data-route="accounts"><span class="nav-icon" aria-hidden="true">▤</span> Accounts <span class="nav-index">02</span></a>
+        <a href="#/usage" data-route="usage"><span class="nav-icon" aria-hidden="true">▥</span> Usage log <span class="nav-index">03</span></a>
+        <a href="#/models" data-route="models"><span class="nav-icon" aria-hidden="true">◇</span> Models & routes <span class="nav-index">04</span></a>
+        <a href="#/settings" data-route="settings"><span class="nav-icon" aria-hidden="true">⚙</span> Settings <span class="nav-index">05</span></a>
+      </nav>
+      <div class="sidebar-bottom"><div class="side-orbit" aria-hidden="true"><span></span></div><p>One endpoint.<br><strong>Every model.</strong></p><small>LOCAL PROXY OPERATIONS</small></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><button class="icon-button mobile-menu" id="menu-button" aria-label="Open navigation" aria-expanded="false" aria-controls="sidebar">☰</button><div class="breadcrumb"><span>CLIProxy</span><span class="slash">/</span><strong id="breadcrumb-current">Overview</strong></div><div class="top-actions"><span class="demo-badge" id="demo-badge" hidden>DEMO DATA</span><span class="connection" id="connection-indicator"><span class="status-dot"></span><span id="connection-text">Disconnected</span></span><button class="icon-button" id="refresh-button" title="Refresh data" aria-label="Refresh data">↻</button></div></header>
+      <main id="main" tabindex="-1">
+        <div class="page-head"><div><div class="eyebrow" id="page-eyebrow">OPERATIONS / OVERVIEW</div><h1 id="page-title">Your proxy,<br><em>at a glance.</em></h1><p class="page-subtitle" id="page-subtitle">Live activity across every connected provider and account.</p></div><div class="page-head-actions" id="page-head-actions"></div></div>
+        <div id="page-content" aria-live="polite"></div>
+      </main>
+      <footer class="footer"><span>CLIProxyAPI <span class="footer-sep">/</span> Control room</span><span id="last-updated">Waiting for connection</span></footer>
+    </div>
+  </div>
+  <div class="connect-screen" id="connect-screen" role="dialog" aria-modal="true" aria-labelledby="connect-title">
+    <div class="connect-glow" aria-hidden="true"></div>
+    <div class="connect-card"><div class="connect-kicker"><span class="status-dot"></span> SECURE LOCAL SESSION</div><div class="connect-symbol" aria-hidden="true">⌘<span>↗</span></div><h2 id="connect-title">Connect to your<br><em>control room.</em></h2><p>Enter the management token from <code>.cliproxy-rs/management-token</code> (or your custom data directory), or use <code>CLIPROXY_MANAGEMENT_TOKEN</code>. Demo mode uses <code>demo</code>.</p><form id="connect-form"><label for="management-token">MANAGEMENT TOKEN</label><div class="token-row"><input id="management-token" name="token" type="password" autocomplete="off" spellcheck="false" required placeholder="Paste your token"><button type="submit" class="button button-primary">Connect <span aria-hidden="true">↗</span></button></div><div class="form-error" id="connect-error" role="alert"></div></form><div class="connect-foot">Your proxy runs locally. The token stays in this browser tab’s session.</div></div>
+  </div>
+  <dialog id="account-dialog" class="dialog"><form method="dialog" id="account-form"><div class="dialog-header"><div><div class="eyebrow" id="account-dialog-kicker">ACCOUNT / NEW</div><h2 id="account-dialog-title">Add an account</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">×</button></div><div id="account-dialog-body"></div><div class="dialog-actions" id="account-dialog-actions"></div></form></dialog>
+  <dialog id="detail-dialog" class="dialog detail-dialog"><div class="dialog-header"><div><div class="eyebrow">USAGE / REQUEST DETAIL</div><h2>Request detail</h2></div><button class="icon-button" type="button" data-close-dialog aria-label="Close dialog">×</button></div><div id="detail-body"></div><div class="dialog-actions"><button class="button button-secondary" type="button" data-close-dialog>Close</button></div></dialog>
+  <div class="toast-region" id="toast-region" role="status" aria-live="polite"></div>
+</body>
+</html>

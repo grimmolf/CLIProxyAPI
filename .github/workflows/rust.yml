@@ -1,0 +1,21 @@
+name: Rust rewrite
+on:
+  push:
+    paths: ['rust/**', 'Cargo.toml', 'Cargo.lock', '.github/workflows/rust.yml']
+  pull_request:
+    paths: ['rust/**', 'Cargo.toml', 'Cargo.lock', '.github/workflows/rust.yml']
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all -- --check
+      - run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - run: cargo test --workspace --locked
+      - run: cargo build --release -p cliproxy-rs --locked
